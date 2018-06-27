@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Favoritos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<p>Aqui ficarão a lista de propriedades</p>
+<ion-content padding>
+  <!--list of properties-->
+  <div class="property card" *ngFor="let property of properties" tappable (click)="viewDetail(property.id)" margin-bottom>
+    <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + property.thumb + ')'}">
+      <div class="background-filter rlt">
+        <div class="align-bottom" padding-left padding-right>
+          <!-- <h6 class="pull-right text-white" ion-text>{{ property.location }} - {{ property.size }} - {{ property.bedroom }} dorm</h6> -->
+          <h6 class="pull-left text-white" ion-text>{{ property.type }}</h6>
+          <h6 class="pull-right text-white" ion-text>{{ property.price | currency:'BRL':true }}</h6>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="padding-sm">
+      <ion-icon name="custom-ionic" class="text-white"></ion-icon>
+      <!-- <span ion-text class="text-white"><b>{{ property.type }}</b></span>
+      <span class="pull-right" ion-text color="light"><strong>{{ property.price | currency:'BRL':true }}</strong></span> -->
+      <span class="pull-right" ion-text color="light"><b>{{ property.location }} - {{ property.size }} - {{ property.bedroom }} dorm</b></span>
+    </div>
+  </div>
+</ion-content>
